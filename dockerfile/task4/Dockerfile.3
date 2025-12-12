@@ -1,0 +1,5 @@
+FROM nginx:1.23.3
+WORKDIR /my-own-directory
+EXPOSE 8080
+LABEL description=my_custom_label
+USER nginx
