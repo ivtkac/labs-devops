@@ -1,0 +1,24 @@
+vhosts:
+  - server_name: www.domain.tld
+    port: 80
+    document_root: /www/domain
+    server_admin: www-admin@foo.example.com
+    directory: /usr/local/httpd/htdocs
+    allow_override: All
+    options:
+      - Indexes
+      - FollowSymLinks
+    order: allow,deny
+    allow_from: all
+
+  - server_name: www.example.com
+    port: 3000
+    document_root: /www/html/test
+    server_admin: www-test@example.com
+    directory: /www/html/test
+    allow_override: All
+    options:
+      - Indexes
+      - FollowSymLinks
+    order: allow,deny
+    allow_from: all

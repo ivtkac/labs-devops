@@ -1,0 +1,15 @@
+
++ 12
+− 0
+version: '3.8'
+
+services:
+  flask_app:
+    image: flask-app
+    container_name: flask_web
+    build: .
+    ports:
+      - "5000:5000"
+    restart: always
+    environment:
+      - PORT=5000

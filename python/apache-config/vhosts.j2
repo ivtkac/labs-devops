@@ -1,0 +1,23 @@
+{% for vhost in vhosts %}
+<VirtualHost *:{{ vhost.port | default('80') }}>
+  ServerName {{ vhost.server_name }}
+  DocumentRoot {{ vhost.document_root }}
+  ServerAdmin {{ vhost.server_admin }}
+  {% if vhost.directory is defined %}
+  <Directory "{{ vhost.directory }}">
+     {% if vhost.allow_override is defined %}
+     AllowOverride {{ vhost.allow_voerride }}
+     {% endif %}
+     {% if vhost.options is defined %}
+     Options {{ vhost.options | join(' ') }}
+     {% endif %}
+     {% if vhost.order is defined %}
+     Order {{ vhost.order }}
+     {% endif %}
+     {% if vhost.allow_from is defined %}
+     Allow from {{ vhost.allow_from }}
+     {% endif %}
+  </Directory>
+  {% endif %}
+</VirtualHost>
+{% endfor %}
